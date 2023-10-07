@@ -37,7 +37,6 @@ public class StoreDetailsAdapter extends RecyclerView.Adapter<StoreDetailsAdapte
         this.storeList = storeList;
     }
 
-
     /**
      * Creates a new ViewHolder instance for a given view type.
      *
@@ -129,36 +128,34 @@ public class StoreDetailsAdapter extends RecyclerView.Adapter<StoreDetailsAdapte
      * @param imageUrl  The URL from which the image should be loaded.
      */
     private void loadImage(ImageView imageView, String imageUrl)
-    {
+        {
         try
-        {
-            int targetWidth = (int) context.getResources().getDimension(R.dimen.store_logo_adapter_width);
-            int targetHeight = (int) context.getResources().getDimension(R.dimen.store_logo_adapter_height);
+            {
+            int targetWidth = (int) context.getResources().getDimension(
+                    R.dimen.store_logo_adapter_width);
+            int targetHeight = (int) context.getResources().getDimension(
+                    R.dimen.store_logo_adapter_height);
 
-            Picasso.get()
-                    .load(imageUrl)
-                    .resize(targetWidth, targetHeight)
-                    .centerInside()
-                    .placeholder(R.drawable.baseline_loading_animation)
-                    .error(R.drawable.baseline_error_image)
-                    .into(imageView, new Callback()
-                    {
-                        @Override
-                        public void onSuccess()
-                        {
-                            Log.d("Picasso", "Logo-Bild erfolgreich im Adapter geladen");
-                        }
+            Picasso.get().load(imageUrl).resize(targetWidth, targetHeight).centerInside()
+                   .placeholder(R.drawable.baseline_loading_animation).error(
+                           R.drawable.baseline_error_image).into(imageView, new Callback()
+                       {
+                       @Override
+                       public void onSuccess()
+                           {
+                           Log.d("Picasso", "Logo-Bild erfolgreich im Adapter geladen");
+                           }
 
-                        @Override
-                        public void onError(Exception e)
-                        {
-                            Log.e("Picasso", "Fehler beim Laden des Logo-Bildes im Adapter", e);
-                        }
-                    });
-        } catch (Exception e)
-        {
+                       @Override
+                       public void onError(Exception e)
+                           {
+                           Log.e("Picasso", "Fehler beim Laden des Logo-Bildes im Adapter", e);
+                           }
+                       });
+            } catch (Exception e)
+            {
             Log.e("StoreDetailsAdapter", "Fehler beim Laden des Bildes mit Picasso", e);
+            }
         }
-    }
 
 }
