@@ -10,7 +10,7 @@ The customer app is an android application that allows useres to generate QR-Cod
 ## Installation
 
 1. Download Android Studio Giraffe
-2. Clone the repository: `git clone https://github.com/raniamo8/CustomerApp.git`
+2. Clone the repository
 
 
 ## Configuration
